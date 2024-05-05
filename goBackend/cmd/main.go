@@ -1,12 +1,15 @@
 package main
 
 import (
+	"context"
+	"fmt"
 	"log"
 	"net/http"
 	"time"
 
 	"github.com/jeeveshlodhi/chess/api/route"
 	"github.com/jeeveshlodhi/chess/internal/db"
+	"github.com/redis/go-redis/v9"
 )
 
 type User struct {
@@ -15,10 +18,25 @@ type User struct {
 }
 
 func main() {
-	// Hello world, the web server
+
+	ctx := context.Background()
+	// Ensure that you have Redis running on your system
 
 	app := db.App()
 	env := app.Env
+
+	rdb := redis.NewClient(&redis.Options{
+		Addr:     env.RedisAddress,
+		Password: env.RedisPassword, // no password set
+		DB:       env.RedisDatabase, // use default DB
+	})
+	defer rdb.Close()
+
+	status, err := rdb.Ping(ctx).Result()
+	if err != nil {
+		log.Fatalln("Redis connection was refused")
+	}
+	fmt.Println(status)
 
 	db := db.NewSQLDatabase(env)
 

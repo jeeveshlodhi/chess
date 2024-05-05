@@ -1,6 +1,5 @@
 import { chessTheme } from "../utils/pieceInages";
-import { ChessBoardType, ItemTypes } from "../utils/types";
-import { useDrag, useDrop } from "react-dnd";
+import { ChessBoardType } from "../utils/types";
 import Square from "./Square";
 import { darkColor, lightColor } from "../utils/constants";
 import { Chess } from "chess.js";

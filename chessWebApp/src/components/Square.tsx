@@ -31,17 +31,12 @@ function Square(props: SquareProps) {
       const to =
         String.fromCharCode(props.location[1] + 97) +
         (8 - props.location[0]).toString();
-      //   console.log(fromPosition, to);
-      //   console.log(props.chess.move({ from: fromPosition, to: to }));
-      //   console.log(props.chess.ascii())
       props.setChess((prevChess) => {
         const newChess = new Chess(prevChess.fen());
         try {
           newChess.move({ from: fromPosition, to: to });
           props.sounds["promote"].play()
         } catch (e) {
-        //   console.log(e);
-        //   props.sounds["illegal"].play()
         }
         console.log(newChess);
         return newChess;

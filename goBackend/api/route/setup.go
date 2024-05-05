@@ -15,4 +15,7 @@ func Setup(timeout time.Duration, db *sqlx.DB) {
     http.HandleFunc("/login", func(w http.ResponseWriter, r *http.Request) {
         controller.LoginController(w, r, db)
     })
+    http.HandleFunc("/makeRoom", func(w http.ResponseWriter, r *http.Request) {
+        controller.LoginController(w, r, db)
+    })
 }

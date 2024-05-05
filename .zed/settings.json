@@ -1,0 +1,173 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+    "theme": "Ayu Dark",
+    "nightly": {
+        "enabled": true,
+        "channel": "stable"
+    },
+    "telemetry": {
+        "diagnostics": false,
+        "metrics": false
+    },
+    "ui_font_size": 16,
+    "buffer_font_size": 16,
+    "tab_size": 4,
+    "cursor_blink": true,
+    "preferred_line_length": 80,
+    "buffer_line_height": "comfortable",
+    "formatter": "prettier",
+    "autosave": "on_window_change",
+    "autosave_delay": 1500,
+    "autosave_on_focus_change": true,
+    "autosave_on_window_change": true,
+    "autosave_on_build": true,
+    "autosave_on_build_delay": 1500,
+    "autosave_on_build_events": ["build", "run", "debug"],
+    "autosave_on_build_events_delay": 1500,
+    "vim_mode": false,
+    "confirm_quit": false,
+    "hover_popover_enabled": true,
+    "show_copilot_suggestions": true,
+    "inlay_hints": {
+        "enabled": true,
+        "typeHints": true,
+        "parameterHints": true,
+        "chainingHints": true
+    },
+    "terminal": {
+        "alternate_scroll": "off",
+        "blinking": "terminal_controlled",
+        "copy_on_select": false,
+        "env": {},
+        "font_features": null,
+        "option_as_meta": false,
+        "working_directory": "current_project_directory"
+    },
+    "git": {
+        "enabled": true,
+        "autoFetch": true,
+        "autoFetchInterval": 300,
+        "autoFetchOnFocus": true,
+        "autoFetchOnWindowChange": true,
+        "autoFetchOnBuild": true,
+        "git_status": true,
+        "autoFetchOnBuildEvents": ["build", "run", "debug"],
+        "autoFetchOnBuildEventsDelay": 1500,
+        "autoFetchOnBuildDelay": 1500,
+        "git_gutter": "tracked_files"
+    },
+    "prettier": {
+        "printWidth": 80,
+        "tabWidth": 4,
+        "useTabs": false,
+        "semi": false,
+        "singleQuote": true,
+        "trailingComma": "all",
+        "bracketSpacing": false,
+        "jsxBracketSameLine": true,
+        "arrowParens": "avoid",
+        "proseWrap": "preserve",
+        "endOfLine": "lf",
+        "jsxSingleQuote": true,
+        "bracketSameLine": true
+    },
+    "intelephense": {
+        "bracketSpacing": true,
+        "jsxBracketSameLine": true,
+        "arrowParens": "avoid",
+        "proseWrap": "preserve",
+        "endOfLine": "lf",
+        "jsxSingleQuote": true,
+        "bracketSameLine": true
+    },
+    "linter": "eslint",
+    "eslint": {
+        "enabled": true,
+        "autoFixOnSave": true,
+        "autoFixOnFormat": true,
+        "autoFixOnFormatDelay": 1500
+    },
+    "languages": {
+        "JavaScript": {
+            "code_actions_on_format": {
+                "source.fixAll.eslint": true
+            }
+        },
+        "TypeScript": {
+            "code_actions_on_format": {
+                "source.organizeImports": true,
+                "source.fixAll.eslint": true
+            }
+        },
+        "TSX": {
+            "code_actions_on_format": {
+                "source.organizeImports": true,
+                "source.fixAll.eslint": true
+            }
+        },
+        "PHP": {
+            "lsp": {
+                "languageServer": "intelephense",
+                "initialization_options": {
+                    "format.enable": true
+                }
+            }
+        },
+        "Go": {
+            "lsp": {
+                "languageServer": "intelephense",
+                "initialization_options": {
+                    "hints": {
+                        "assignVariableTypes": true,
+                        "compositeLiteralFields": true,
+                        "compositeLiteralTypes": true,
+                        "constantValues": true,
+                        "functionTypeParameters": true,
+                        "parameterNames": true,
+                        "rangeVariableTypes": true
+                    }
+                }
+            }
+        }
+    },
+    "lsp": {
+        "typescript-language-server": {
+            "initialization_options": {
+                "preferences": {
+                    "includeInlayParameterNameHints": "all",
+                    "includeInlayParameterNameHintsWhenArgumentMatchesName": true,
+                    "includeInlayFunctionParameterTypeHints": true,
+                    "includeInlayVariableTypeHints": true,
+                    "includeInlayVariableTypeHintsWhenTypeMatchesName": false,
+                    "includeInlayPropertyDeclarationTypeHints": true,
+                    "includeInlayFunctionLikeReturnTypeHints": true,
+                    "includeInlayEnumMemberValueHints": true
+                }
+            }
+        },
+        "gopls": {
+            "initialization_options": {
+                "usePlaceholders": true,
+                "buildFlags": ["-tags=or_e2e,or_int,or_test"], // <--------------- buildFlags!
+                "completeUnimported": true,
+                "experimentalPostfixCompletions": true,
+                "hints": {
+                    "assignVariableTypes": false,
+                    "compositeLiteralFields": false,
+                    "compositeLiteralTypes": false,
+                    "constantValues": true,
+                    "functionTypeParameters": true,
+                    "parameterNames": true,
+                    "rangeVariableTypes": true
+                }
+            }
+        }
+    }
+}
